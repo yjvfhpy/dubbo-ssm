@@ -1,0 +1,9 @@
+com\mical\consumer\entity\BaseResult.class
+com\mical\consumer\validator\Not999.class
+com\mical\consumer\aop\BindingResultAop.class
+com\mical\consumer\validator\Not999Validator.class
+com\mical\consumer\entity\Goods.class
+com\mical\consumer\APP.class
+com\mical\consumer\util\CustomDoubleSerialize.class
+com\mical\consumer\action\UinfoController.class
+com\mical\consumer\exception\GlobalExceptionResolver.class

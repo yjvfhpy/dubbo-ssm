@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+					  http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+					  http://www.springframework.org/schema/context  
+					  http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+    <!--数据源druid -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="driverClassName" value="${mysql.driver}" />
+		<property name="url" value="${mysql.url}" />
+		<property name="username" value="${mysql.username}" />
+		<property name="password" value="${mysql.password}" />
+		
+		<!-- 配置初始化大小、最小、最大 -->
+		<property name="initialSize" value="${druid.pool.size.init}" />
+		<property name="minIdle" value="${druid.pool.size.min}" />
+		<property name="maxActive" value="${druid.pool.size.max}" />
+
+		<!-- 配置监控统计拦截的filters，wall用于防止sql注入，stat用于统计分析 -->
+		<property name="filters" value="wall,stat" />
+	</bean>
+	
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="com.mical.entity" />
+		<property name="mapperLocations" value="classpath:com/mical/provider/mapper/*.xml" />
+	</bean>
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.mical.provider.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+</beans>

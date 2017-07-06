@@ -1,0 +1,24 @@
+#surefire
+#Thu Jul 06 14:38:58 CST 2017
+testClassesDirectory=F\:\\cooleworkspace\\dubbo-ssm-config\\target\\test-classes
+classPathUrl.2=C\:\\Users\\dell\\.m2\\repository\\junit\\junit\\3.8.1\\junit-3.8.1.jar
+useManifestOnlyJar=true
+classPathUrl.1=F\:\\cooleworkspace\\dubbo-ssm-config\\target\\classes
+reportsDirectory=F\:\\cooleworkspace\\dubbo-ssm-config\\target\\surefire-reports
+classPathUrl.0=F\:\\cooleworkspace\\dubbo-ssm-config\\target\\test-classes
+providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
+testSuiteDefinitionTestSourceDirectory=F\:\\cooleworkspace\\dubbo-ssm-config\\src\\test\\java
+surefireClassPathUrl.1=C\:\\Users\\dell\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-api\\2.12.4\\surefire-api-2.12.4.jar
+surefireClassPathUrl.0=C\:\\Users\\dell\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-junit3\\2.12.4\\surefire-junit3-2.12.4.jar
+runOrder=filesystem
+useSystemClassLoader=true
+excludes0=**/*$*
+isTrimStackTrace=true
+tc.0=com.mical.AppTest
+enableAssertions=true
+includes2=**/*TestCase.java
+failIfNoTests=false
+includes1=**/*Test.java
+runStatisticsFile=F\:\\cooleworkspace\\dubbo-ssm-config\\.surefire-0D78EBB1672210E787C1E6583A535D57E0687C6D
+includes0=**/Test*.java
+childDelegation=false
