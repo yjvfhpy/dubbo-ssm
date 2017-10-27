@@ -31,6 +31,8 @@
 	<context:property-placeholder location="classpath:dubbo.properties" />
 	
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>
+	
+	<dubbo:application name="ssm-customer" />
 
 	<!-- 开始配置Dubbo接收 -->
 	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" />
@@ -38,5 +40,7 @@
 	<!-- 生成远程服务代理，可以和本地bean一样使用 -->
 	<dubbo:reference id="uinfoService" interface="com.mical.api.IUinfoService" />
 
-	<dubbo:application name="ssm-customer" />
+	<dubbo:reference id="validationService" interface="com.mical.api.IValidationService" validation="true"></dubbo:reference>
+	
+	<dubbo:reference id="cacheService" interface="com.mical.api.ICacheService"/>
 </beans>
