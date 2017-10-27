@@ -164,6 +164,20 @@
 			<version>1.0.20</version>
 		</dependency>
 
+
+		<!-- 参数验证功能 是基于 JSR303 实现的，用户只需标识 JSR303 标准的验证 annotation，并通过声明 filter 来实现验证 -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
+		<!-- 参数验证功能end -->
+
 	</dependencies>
 
 	<build>
@@ -180,7 +194,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<modules>
 		<module>../dubbo-ssm-api</module>
 		<module>../dubbo-ssm-entity</module>
