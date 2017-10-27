@@ -28,22 +28,24 @@ public class UinfoService implements IUinfoService {
 
 	@Resource
 	private RedisCache cache;
-	
+
 	@Override
 	public List<Uinfo> sel() {
 		String cache_key = RedisCache.CAHCENAME + "|users";
-		List<Uinfo> result_cache = clusterCache.getListCache(cache_key, Uinfo.class);
-		if (result_cache == null) {
-			result_cache = uinfoDao.sel();
-			clusterCache.putListCacheWithExpireTime(cache_key, result_cache, RedisCache.CAHCETIME);
+		List<Uinfo> result = cache.getListCache(cache_key, Uinfo.class);
+		if (result == null) {
+			result = uinfoDao.sel();
+			cache.putListCacheWithExpireTime(cache_key, result, RedisCache.CAHCETIME);
 			logger.info("put cache with key:" + cache_key);
 		} else {
 			logger.info("get cache with key:" + cache_key);
 		}
 
-		logger.info(clusterCache.getCache("mical", String.class));
-		cache.putCache("test" + new Random().nextInt(100), "local" + new Random().nextInt(100));
-		return result_cache;
+		int rd = new Random().nextInt(100);
+		cache.putCache("test" + rd, "local" + rd);
+		logger.info(cache.getCache("test" + rd, String.class));
+
+		return result;
 	}
 
 	@Override
