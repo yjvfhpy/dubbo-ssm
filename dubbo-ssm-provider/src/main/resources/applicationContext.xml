@@ -11,8 +11,7 @@
 					 ">
 	
 	<!-- 引入属性配置文件 -->
-	<bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
 				<value>classpath:db.properties</value>
@@ -37,11 +36,16 @@
 	
 	<!-- Dubbo开始 -->
 	<dubbo:application name="${dubbo.application.name}" />
+	
 	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" />
 	
-    <dubbo:protocol name="dubbo" port="20884" />
+    <dubbo:protocol name="dubbo" dispather="all" threadpool="fixed" threads="100" port="20884" />
 	
 	 <!-- 使用dubbo协议暴露服务 -->
-	<dubbo:service interface="com.mical.api.IUinfoService" ref="uinfoService" timeout="1200000"/>
+	<dubbo:service interface="com.mical.api.IUinfoService" ref="uinfoService" timeout="1200000" loadbalance="roundrobin"/>
+	
+	<dubbo:service interface="com.mical.api.IValidationService" ref="validationService" validation="true"></dubbo:service>
+	
+	<dubbo:service interface="com.mical.api.ICacheService" ref="cacheService"></dubbo:service>
 	
 </beans>
