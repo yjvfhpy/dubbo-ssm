@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.mical.provider.util.ProtoStuffSerializerUtil;
 
@@ -23,7 +22,7 @@ import redis.clients.jedis.JedisPool;
  * @author yingjun
  *
  */
-@Component
+//@Component
 public class RedisClusterCache {
 	
 	

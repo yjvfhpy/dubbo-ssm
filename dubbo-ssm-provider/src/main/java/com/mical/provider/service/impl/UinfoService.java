@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import com.mical.api.IUinfoService;
 import com.mical.entity.Uinfo;
 import com.mical.provider.cache.RedisCache;
-import com.mical.provider.cache.cluster.RedisClusterCache;
 import com.mical.provider.mapper.IUinfoDao;
 
 @Service(value = "uinfoService")
@@ -23,8 +22,8 @@ public class UinfoService implements IUinfoService {
 	@Resource
 	private IUinfoDao uinfoDao;
 
-	@Resource
-	private RedisClusterCache clusterCache;
+/*	@Resource
+	private RedisClusterCache clusterCache;*/
 
 	@Resource
 	private RedisCache cache;
